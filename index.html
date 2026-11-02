@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Puesto de Flores</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Florería boutique en Córdoba Capital. Ramos de estación, box, eventos, suscripciones para locales y deco para el hogar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Jost:wght@300..600&display=swap">
+<style>
+/* Layout: a florist's shop window — striped awning on top, arched display windows, a kraft work table for the bouquet builder. */
+:root{
+  --paper:#F5ECE9;      /* papel seda rosado */
+  --paper-2:#EADBD6;
+  --ink:#191314;        /* negro PF */
+  --ink-soft:#5B4E4F;
+  --kraft:#C4A27A;      /* papel madera */
+  --kraft-2:#E2CDB2;
+  --bloom:#A8234F;      /* lilium magenta */
+  --stem:#4B6339;
+  --line:rgba(25,19,20,.14);
+  --card:#FBF6F4;
+  --on-ink:#F5ECE9;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+  --step--1:clamp(.82rem,.8rem + .1vw,.88rem);
+  --step-0:clamp(1rem,.96rem + .2vw,1.08rem);
+  --step-1:clamp(1.25rem,1.1rem + .6vw,1.5rem);
+  --step-2:clamp(1.7rem,1.4rem + 1.4vw,2.4rem);
+  --step-3:clamp(2.3rem,1.7rem + 3vw,4rem);
+  --step-4:clamp(2.9rem,1.9rem + 5vw,6.2rem);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#161112;--paper-2:#221A1B;--ink:#F3E8E4;--ink-soft:#B9A9A7;--kraft:#B8946A;--kraft-2:#3A2E25;
+  --bloom:#E0668F;--stem:#8FAE72;--line:rgba(243,232,228,.14);--card:#1E1718;--on-ink:#161112;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#161112;--paper-2:#221A1B;--ink:#F3E8E4;--ink-soft:#B9A9A7;--kraft:#B8946A;--kraft-2:#3A2E25;
+  --bloom:#E0668F;--stem:#8FAE72;--line:rgba(243,232,228,.14);--card:#1E1718;--on-ink:#161112;color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:var(--step-0);line-height:1.6;font-weight:400;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:1240px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+.eyebrow{font-size:var(--step--1);letter-spacing:.32em;text-transform:uppercase;font-weight:500;color:var(--ink-soft)}
+.it{font-style:italic}
+:focus-visible{outline:2px solid var(--bloom);outline-offset:3px;border-radius:4px}
+
+/* ---------- proposal banner ---------- */
+.proposal{background:var(--bloom);color:#fff;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-align:center}
+.proposal .wrap{padding-block:8px}
+/* ---------- nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:var(--on-ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .iso{font-family:var(--display);font-weight:500;font-size:2.4rem;line-height:1;letter-spacing:.02em;color:var(--on-ink);padding-right:14px;border-right:1px solid color-mix(in srgb,var(--on-ink) 35%,transparent)}
+.brand span{font-family:var(--display);font-size:1.15rem;letter-spacing:.02em;color:var(--on-ink)}
+.nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase}
+.nav ul a{text-decoration:none;color:var(--on-ink);opacity:.8}
+.nav ul a:hover{opacity:1}
+@media (min-width:980px){.nav ul{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 22px;border-radius:999px;text-decoration:none;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.btn:hover{transform:translateY(-1px)}
+.btn.solid{background:var(--bloom);border-color:var(--bloom);color:#fff}
+.btn.solid:hover{filter:brightness(1.08)}
+.nav .btn{padding:10px 16px;font-size:.72rem;color:var(--on-ink)}
+@media (max-width:520px){.nav .btn{display:none}}
+
+/* ---------- toldo (awning) ---------- */
+.awning{height:46px;background:repeating-linear-gradient(90deg,var(--ink) 0 34px,var(--paper) 34px 68px);
+  -webkit-mask:radial-gradient(circle 17px at 17px 0,#000 98%,transparent) 0 29px/34px 17px repeat-x,linear-gradient(#000,#000) 0 0/100% 29px no-repeat;
+          mask:radial-gradient(circle 17px at 17px 0,#000 98%,transparent) 0 29px/34px 17px repeat-x,linear-gradient(#000,#000) 0 0/100% 29px no-repeat;
+  border-top:1px solid var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(36px,6vw,80px) clamp(48px,7vw,96px)}
+.hero .wrap{display:grid;gap:clamp(32px,5vw,72px);align-items:center}
+@media (min-width:900px){.hero .wrap{grid-template-columns:1.15fr .85fr}}
+.hero h1{font-size:var(--step-4);line-height:.98}
+.hero h1 em{color:var(--bloom)}
+.hero .lede{max-width:46ch;margin-top:24px;font-size:var(--step-1);font-weight:300;color:var(--ink-soft);line-height:1.5}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:var(--step--1);color:var(--ink-soft)}
+.hero .meta b{font-family:var(--display);font-weight:500;font-size:1.5rem;color:var(--ink);display:block;line-height:1.1}
+.arch{position:relative;justify-self:center;width:min(100%,420px)}
+.arch .frame{aspect-ratio:9/14;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--paper-2);border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(25,19,20,.45)}
+.arch video{width:100%;height:100%;object-fit:cover}
+.arch .tag{position:absolute;left:-14px;bottom:56px;background:var(--card);color:var(--ink);padding:12px 16px 12px 20px;border-radius:4px;transform:rotate(-4deg);box-shadow:0 12px 30px -12px rgba(0,0,0,.35);font-family:var(--display);font-style:italic;font-size:1.05rem;max-width:210px;line-height:1.25}
+.arch .tag::before{content:"";position:absolute;left:7px;top:50%;width:6px;height:6px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line);transform:translateY(-50%)}
+.arch .stamp{position:absolute;right:-10px;top:24%;width:96px;height:96px;border-radius:50%;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;text-align:center;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;line-height:1.4;animation:spin 24s linear infinite}
+.arch .stamp b{font-family:var(--display);font-size:1.6rem;letter-spacing:0;display:block;font-weight:500}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:520px){.arch .tag{left:0}.arch .stamp{right:0}}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--ink);color:var(--on-ink);overflow:hidden;padding-block:16px;white-space:nowrap}
+.marquee .track{display:inline-flex;gap:40px;animation:mq 40s linear infinite;font-family:var(--display);font-style:italic;font-size:var(--step-1)}
+.marquee .track span::after{content:"✿";font-style:normal;margin-left:40px;font-size:.8em;color:var(--kraft)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(64px,9vw,128px)}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+@media (min-width:900px){.sec-head{grid-template-columns:1fr 1fr;align-items:end}}
+.sec-head h2{font-size:var(--step-3)}
+.sec-head p{color:var(--ink-soft);max-width:52ch;font-weight:300;font-size:var(--step-1);line-height:1.5}
+
+/* services */
+.services{display:grid;gap:clamp(20px,2.4vw,32px);grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+.svc{display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc .ph{aspect-ratio:4/5;overflow:hidden;border-radius:200px 200px 6px 6px;background:var(--paper-2)}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.svc:hover .ph img{transform:scale(1.05)}
+.svc h3{font-size:var(--step-2)}
+.svc p{color:var(--ink-soft);font-weight:300}
+.svc .k{font-size:var(--step--1);letter-spacing:.24em;text-transform:uppercase;color:var(--bloom);font-weight:500}
+
+/* reels */
+.reels{background:var(--ink);color:var(--on-ink)}
+.reels .eyebrow,.reels .sec-head p{color:color-mix(in srgb,var(--on-ink) 70%,transparent)}
+.reel-row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
+.reel{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;min-width:0}
+.reel .v{aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#000;position:relative}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reel .cap{font-family:var(--display);font-style:italic;font-size:1.15rem;line-height:1.25}
+.reel small{display:block;font-family:var(--body);font-style:normal;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
+
+/* ---------- builder ---------- */
+.taller{background:var(--paper-2)}
+.bench{display:grid;gap:clamp(24px,3vw,40px)}
+@media (min-width:980px){.bench{grid-template-columns:1.05fr .95fr;align-items:start}}
+.table{position:relative;border-radius:20px;overflow:hidden;background:
+  radial-gradient(120% 80% at 50% 0%,color-mix(in srgb,var(--kraft-2) 70%,var(--card)) 0%,var(--kraft-2) 70%);
+  border:1px solid var(--line);min-width:0}
+@media (min-width:980px){.table{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px)}}
+.table svg{width:100%;height:auto;display:block}
+.table .note{position:absolute;right:18px;bottom:18px;width:min(46%,220px);background:var(--card);color:var(--ink);padding:14px 16px;border-radius:3px;transform:rotate(3deg);box-shadow:0 10px 24px -10px rgba(0,0,0,.4);font-family:var(--display);font-style:italic;font-size:1rem;line-height:1.35;overflow-wrap:anywhere}
+.table .note:empty{display:none}
+.table .count{position:absolute;left:18px;top:16px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.table .count b{font-family:var(--display);font-size:1.8rem;letter-spacing:0;color:var(--ink);font-weight:500;display:block;line-height:1}
+.table .empty{position:absolute;inset:auto 0 44% 0;text-align:center;font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--ink-soft)}
+.panel{display:flex;flex-direction:column;gap:28px;min-width:0}
+.field{display:flex;flex-direction:column;gap:12px}
+.field>label,.field>.lbl{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--body);font-size:.88rem;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.chip .sw{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:-1px;border:1px solid var(--line)}
+.flowers{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:8px}
+.fl{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:10px;padding:8px 8px 8px 10px;background:var(--card);border:1px solid var(--line);border-radius:12px;min-width:0}
+.fl.on{border-color:var(--ink)}
+.fl svg{width:40px;height:40px}
+.fl .nm{font-size:.9rem;line-height:1.2;min-width:0}
+.fl .nm small{display:block;color:var(--ink-soft);font-size:.74rem;line-height:1.3}
+.stepper{display:flex;align-items:center;gap:4px;font-variant-numeric:tabular-nums}
+.stepper button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:1rem;line-height:1;display:grid;place-items:center}
+.stepper button:hover{background:var(--ink);color:var(--on-ink)}
+.stepper output{min-width:1.4em;text-align:center;font-size:.9rem}
+textarea,input[type=text]{font-family:var(--display);font-style:italic;font-size:1.05rem;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);resize:vertical;width:100%}
+.meaning{display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:var(--ink-soft);border-left:2px solid var(--bloom);padding-left:14px}
+.meaning b{color:var(--ink);font-weight:500}
+.order{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.order .hint{font-size:.85rem;color:var(--ink-soft);flex-basis:100%}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;visibility:hidden;background:var(--ink);color:var(--on-ink);padding:12px 20px;border-radius:999px;font-size:.9rem;z-index:80;transition:transform .35s,opacity .35s,visibility .35s;max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0);opacity:1;visibility:visible}
+@keyframes pop{0%{transform:scale(0) rotate(-30deg);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+.bloom-new{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.9,.3,1.3) both}
+
+/* ---------- gallery ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.masonry{columns:2 160px;column-gap:14px}
+@media (min-width:900px){.masonry{columns:4 220px}}
+.masonry button{all:unset;display:block;break-inside:avoid;margin-bottom:14px;border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--paper-2);width:100%}
+.masonry button:focus-visible{outline:2px solid var(--bloom);outline-offset:3px}
+.masonry img{width:100%;height:auto;transition:transform .8s,filter .4s}
+.masonry button:hover img{transform:scale(1.03)}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(10,8,8,.92);display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-height:86vh;width:auto;border-radius:6px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:999px;padding:8px 16px;font-family:var(--body);letter-spacing:.2em;font-size:.72rem;text-transform:uppercase;cursor:pointer}
+
+/* ---------- calendar ---------- */
+.cal{display:grid;gap:clamp(24px,4vw,56px)}
+@media (min-width:900px){.cal{grid-template-columns:.9fr 1.1fr;align-items:start}}
+.next{background:var(--ink);color:var(--on-ink);border-radius:20px;padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+.next .days{font-family:var(--display);font-size:clamp(4rem,10vw,7.5rem);line-height:.9;font-variant-numeric:tabular-nums}
+.next .days small{font-family:var(--body);font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;display:block;margin-top:10px;opacity:.7}
+.next h3{font-size:var(--step-2)}
+.next p{opacity:.8;font-weight:300}
+.next .btn{align-self:flex-start;color:var(--on-ink)}
+.next img{position:absolute;right:-36px;top:-36px;width:190px;height:190px;object-fit:cover;border-radius:50%;opacity:.9;border:6px solid var(--on-ink)}
+@media (max-width:600px){.next img{display:none}}
+.dates{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.dates li{display:grid;grid-template-columns:5.5rem 1fr auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.dates .d{font-family:var(--display);font-size:1.35rem;font-variant-numeric:tabular-nums}
+.dates .t b{font-weight:500;display:block}
+.dates .t span{font-size:.9rem;color:var(--ink-soft)}
+.dates .r{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- subscription ---------- */
+.subs .wrap{display:grid;gap:clamp(32px,5vw,72px);align-items:center}
+@media (min-width:900px){.subs .wrap{grid-template-columns:1fr 1fr}}
+.subs .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.subs .pics img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px}
+.subs .pics img:first-child{border-radius:200px 200px 6px 6px;margin-top:40px}
+.subs h2{font-size:var(--step-3)}
+.ticks{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:12px}
+.ticks li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start}
+.ticks li::before{content:"";width:12px;height:12px;margin-top:.45em;border-radius:50%;background:var(--bloom);box-shadow:0 0 0 4px color-mix(in srgb,var(--bloom) 20%,transparent)}
+.for{font-size:.92rem;color:var(--ink-soft);margin-bottom:24px}
+
+/* ---------- branches ---------- */
+.branches{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.branch{display:grid;grid-template-columns:minmax(0,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.branch .media{aspect-ratio:16/10;overflow:hidden;background:#000}
+.branch .media img,.branch .media video{width:100%;height:100%;object-fit:cover}
+.branch .body{padding:24px;display:flex;flex-direction:column;gap:8px}
+.branch h3{font-size:var(--step-2)}
+.branch p{color:var(--ink-soft)}
+.branch a.lnk{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;align-self:flex-start;margin-top:8px}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--on-ink)}
+footer .big{padding-block:clamp(56px,8vw,110px) 40px;display:grid;gap:28px}
+footer h2{font-size:var(--step-4);line-height:.95}
+footer h2 em{color:var(--kraft)}
+footer .ctas{display:flex;flex-wrap:wrap;gap:12px}
+footer .btn{color:var(--on-ink)}
+footer .base{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;padding-block:24px;border-top:1px solid color-mix(in srgb,var(--on-ink) 18%,transparent);font-size:.82rem;opacity:.75}
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;background:var(--bloom);color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);text-decoration:none}
+.fab svg{width:26px;height:26px}
+</style>
+</head>
+<body>
+
+
+<div class="proposal"><div class="wrap">Propuesta de sitio web para Puesto de Flores · Diseñada por MG Servicios Ejecutivos · Versión de muestra</div></div>
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Puesto de Flores, inicio"><b class="iso" aria-hidden="true">PF</b><span>Puesto de Flores</span></a>
+    <ul>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#taller">Armá tu ramo</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#fechas">Fechas</a></li>
+      <li><a href="#locales">Locales</a></li>
+    </ul>
+    <a class="btn" href="https://wa.me/5493512610879" target="_blank" rel="noopener">Pedí por WhatsApp</a>
+  </div>
+</nav>
+<div class="awning" aria-hidden="true"></div>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Florería boutique · Córdoba Capital</p>
+      <h1 style="margin-top:18px">Flores que dicen lo que <em class="it">cuesta poner</em> en palabras.</h1>
+      <p class="lede">Ramos de estación hechos a mano, box para sorprender, eventos y flores para tu local. Todos los jueves llegan flores frescas del mercado.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#taller">Armá tu ramo</a>
+        <a class="btn" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="meta">
+        <div><b>2</b>locales en Córdoba</div>
+        <div><b>29,5 mil</b>personas nos siguen</div>
+        <div><b>Jueves</b>flores frescas del mercado</div>
+      </div>
+    </div>
+    <div class="arch">
+      <div class="frame"><video src="hero.mp4" autoplay muted loop playsinline aria-label="Ramo de gerberas y alstroemerias en papel negro PF"></video></div>
+      <div class="stamp" aria-hidden="true"><div><b>PF</b>flores<br>&amp; home</div></div>
+      <div class="tag">Cada ramo es único, hecho a mano con flores de estación.</div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>Liliums perfumados</span><span>Rosas</span><span>Gerberas</span><span>Girasoles</span><span>Lisianthus</span><span>Fresias</span><span>Dianthus</span><span>Manzanillas</span><span>Crisantemo pompón</span><span>Kasumi</span><span>Eucalipto</span>
+  <span>Liliums perfumados</span><span>Rosas</span><span>Gerberas</span><span>Girasoles</span><span>Lisianthus</span><span>Fresias</span><span>Dianthus</span><span>Manzanillas</span><span>Crisantemo pompón</span><span>Kasumi</span><span>Eucalipto</span>
+</div></div>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Lo que hacemos</p><h2 style="margin-top:14px">Flores para regalar, celebrar y <span class="it">vivir mejor</span> la casa.</h2></div>
+      <p>Desde un ramo para una recibida hasta la ambientación de un evento. Elegimos cada flor, combinamos colores y armamos todo a mano en nuestros dos locales.</p>
+    </div>
+    <div class="services">
+      <article class="svc"><div class="ph"><img src="p14.jpg" alt="Ramo de liliums rosados y mix de flores" loading="lazy"></div><p class="k">Ramos de estación</p><h3>Ramos hechos a mano</h3><p>Liliums perfumados, rosas, gerberas y flores de temporada en distintos tamaños, del ramo chico al XXL.</p></article>
+      <article class="svc"><div class="ph"><img src="p51.jpg" alt="Box negro con rosas, lisianthus y espumante" loading="lazy"></div><p class="k">Box &amp; regalos</p><h3>Box para sorprender</h3><p>Box de rosas, la caja de rayas con lilium, box con espumante y ediciones especiales para San Valentín.</p></article>
+      <article class="svc"><div class="ph"><img src="p49.jpg" alt="Ramo de rosas rojas en papel negro" loading="lazy"></div><p class="k">Momentos grandes</p><h3>Recibidas, aniversarios y novias</h3><p>Ramos de recibida, 50 y 100 rosas, ramos de novia con rosas blancas, lilium y kasumi.</p></article>
+      <article class="svc"><div class="ph"><img src="p9.jpg" alt="Bloom Bar al aire libre con baldes de flores" loading="lazy"></div><p class="k">Eventos · con @decoliving</p><h3>Eventos y Bloom Bar</h3><p>Centros de mesa y decoración floral para eventos. Con el Bloom Bar cada invitado arma su propio ramo y se lo lleva.</p></article>
+      <article class="svc"><div class="ph"><img src="p35.jpg" alt="Baldes con flores frescas en el local" loading="lazy"></div><p class="k">Para empresas</p><h3>Suscripción para tu local</h3><p>Flores frescas todas las semanas para cafeterías, oficinas, peluquerías y boutiques. Stand incluido.</p></article>
+      <article class="svc"><div class="ph"><img src="p74.jpg" alt="Floreros de cerámica en tonos tierra" loading="lazy"></div><p class="k">Deco &amp; home</p><h3>Floreros, secas y plantas</h3><p>Nuestra línea de floreros en khaki, verde y chocolate, el florero HALO, flores secas, kokedamas y plantas.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="reels" id="jueves">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Jueves de flores frescas</p><h2 style="margin-top:14px">Así se vive el <span class="it">Puesto</span>.</h2></div>
+      <p>Cada jueves llegan las flores del mercado. Las elegimos, las limpiamos y las convertimos en ramos el mismo día.</p>
+    </div>
+    <div class="reel-row">
+      <figure class="reel" style="margin:0"><div class="v"><video src="mercado.mp4" autoplay muted loop playsinline preload="metadata"></video></div><figcaption class="cap"><small>01 · El jueves</small>Llegan las flores del mercado</figcaption></figure>
+      <figure class="reel" style="margin:0"><div class="v"><video src="variedades.mp4" autoplay muted loop playsinline preload="metadata"></video></div><figcaption class="cap"><small>02 · La selección</small>Gerberas, fresias, dianthus y pompones</figcaption></figure>
+      <figure class="reel" style="margin:0"><div class="v"><video src="ramos.mp4" autoplay muted loop playsinline preload="metadata"></video></div><figcaption class="cap"><small>03 · Primavera</small>Muchísimos ramos en Hola Valle</figcaption></figure>
+      <figure class="reel" style="margin:0"><div class="v"><video src="holavalle.mp4" autoplay muted loop playsinline preload="metadata"></video></div><figcaption class="cap"><small>04 · Hola Valle</small>Abrimos nuestra segunda casa</figcaption></figure>
+      <figure class="reel" style="margin:0"><div class="v"><video src="local.mp4" autoplay muted loop playsinline preload="metadata"></video></div><figcaption class="cap"><small>05 · Av. Gandhi</small>Ramos listos para llevar</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="taller" id="taller">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">El taller</p><h2 style="margin-top:14px">Armá tu ramo, <span class="it">flor por flor</span>.</h2></div>
+      <p>Elegí la ocasión, el tamaño, el papel y las flores. Te mostramos qué significa cada una y te dejamos el pedido listo para mandarnos por WhatsApp.</p>
+    </div>
+    <div class="bench">
+      <div class="table" aria-live="polite">
+        <div class="count"><b id="stemCount">0</b>tallos</div>
+        <svg id="bouquet" viewBox="0 0 400 470" role="img" aria-label="Vista previa de tu ramo"></svg>
+        <div class="empty" id="emptyMsg" hidden>Sumá flores para empezar</div>
+        <div class="note" id="noteView"></div>
+      </div>
+      <div class="panel">
+        <div class="field"><span class="lbl">Ocasión</span><div class="chips" id="occasions"></div></div>
+        <div class="field"><span class="lbl">Tamaño</span><div class="chips" id="sizes"></div></div>
+        <div class="field"><span class="lbl">Presentación</span><div class="chips" id="papers"></div></div>
+        <div class="field"><span class="lbl">Flores</span><div class="flowers" id="flowerList"></div></div>
+        <div class="field"><label for="msg">Mensaje para la tarjeta</label><textarea id="msg" rows="2" maxlength="140" placeholder="Feliz recibida, ¡te lo merecés!"></textarea></div>
+        <div class="field"><span class="lbl">Lo que dice tu ramo</span><div class="meaning" id="meaning"></div></div>
+        <div class="order">
+          <a class="btn solid" id="orderBtn" href="https://wa.me/5493512610879" target="_blank" rel="noopener">Enviar mi ramo por WhatsApp</a>
+          <button class="btn" id="resetBtn" type="button">Empezar de nuevo</button>
+          <p class="hint">Se abre WhatsApp con tu pedido ya escrito. Te confirmamos precio y disponibilidad según las flores de la semana.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Galería</p><h2 style="margin-top:14px">Ramos de <span class="it">esta semana</span> y de siempre.</h2></div>
+      <p>Una selección de lo que armamos. Tocá una foto para verla grande.</p>
+    </div>
+    <div class="filters chips" id="filters"></div>
+    <div class="masonry" id="masonry"></div>
+  </div>
+</section>
+
+<section class="taller" id="fechas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Calendario floral</p><h2 style="margin-top:14px">Fechas para <span class="it">no olvidarse</span>.</h2></div>
+      <p>Las fechas en las que más se regalan flores. Encargá con anticipación y asegurate tu ramo.</p>
+    </div>
+    <div class="cal">
+      <div class="next" id="nextDate"></div>
+      <ul class="dates" id="dateList"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="subs" id="suscripcion">
+  <div class="wrap">
+    <div class="pics">
+      <img src="p24.jpg" alt="Gerberas rojas y rosadas en florero de vidrio" loading="lazy">
+      <img src="p27.jpg" alt="Gerberas en floreros sobre una mesa" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow">Suscripción mensual</p>
+      <h2 style="margin-top:14px">Un rincón con flores que <span class="it">enamora</span> a tus clientes.</h2>
+      <ul class="ticks">
+        <li>Ramos renovados todas las semanas</li>
+        <li>Stand incluido para exhibirlos</li>
+        <li>Flores frescas y de temporada</li>
+        <li>Propuesta a medida de tu espacio</li>
+      </ul>
+      <p class="for">Ideal para cafeterías, locales comerciales, oficinas, peluquerías y boutiques.</p>
+      <a class="btn solid" href="https://wa.me/5493512610879" data-wa="¡Hola! Quiero consultar por la suscripción mensual de flores para mi local." target="_blank" rel="noopener">Consultar por mi local</a>
+    </div>
+  </div>
+</section>
+
+<section id="locales">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Visitanos</p><h2 style="margin-top:14px">Dos locales, <span class="it">las mismas ganas</span>.</h2></div>
+      <p>Pasá a elegir tus flores en persona o hacé tu pedido por WhatsApp o mensaje directo.</p>
+    </div>
+    <div class="branches">
+      <article class="branch">
+        <div class="media"><img src="p36.jpg" alt="Sector verde con plantas y floreros en el local" loading="lazy"></div>
+        <div class="body"><p class="eyebrow">Local principal</p><h3>Av. Mahatma Gandhi 740</h3><p>Córdoba Capital, CP 5000</p><p>9 a 14 y 16 a 20:30 h · domingos 10 a 14 h</p>
+        <a class="lnk" href="https://www.google.com/maps/search/?api=1&query=Puesto+de+Flores+Av.+Mahatma+Gandhi+740+C%C3%B3rdoba" target="_blank" rel="noopener">Cómo llegar</a></div>
+      </article>
+      <article class="branch">
+        <div class="media"><img src="p13.jpg" alt="Local de Puesto de Flores en el Complejo Hola Valle" loading="lazy"></div>
+        <div class="body"><p class="eyebrow">Segunda sucursal</p><h3>Complejo Hola Valle</h3><p>Córdoba Capital</p><p>Consultá horarios por WhatsApp</p>
+        <a class="lnk" href="https://www.google.com/maps/search/?api=1&query=Complejo+Hola+Valle+C%C3%B3rdoba" target="_blank" rel="noopener">Cómo llegar</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap big">
+    <p class="eyebrow" style="color:inherit;opacity:.7">Puesto de Flores · Flores &amp; Home</p>
+    <h2>Siempre <em class="it">flores</em>.</h2>
+    <div class="ctas">
+      <a class="btn solid" href="https://wa.me/5493512610879" target="_blank" rel="noopener">Hacer un pedido</a>
+      <a class="btn" href="https://www.instagram.com/puestodeflores_deco/" target="_blank" rel="noopener">@puestodeflores_deco</a>
+      <a class="btn" href="https://www.instagram.com/decoliving/" target="_blank" rel="noopener">Eventos @decoliving</a>
+    </div>
+  </div>
+  <div class="wrap base"><span>© 2026 Puesto de Flores · Córdoba, Argentina</span><span>Av. Mahatma Gandhi 740 · Complejo Hola Valle</span></div>
+</footer>
+
+<a class="fab" href="https://wa.me/5493512610879" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+
+<div class="toast" id="toast" role="status"></div>
+<div class="lb" id="lb" hidden><button type="button" id="lbClose">Cerrar</button><img id="lbImg" alt=""></div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+/* ---------- datos de flores ---------- */
+const F=[
+ {id:'rr',n:'Rosa roja',kind:'rose',c:'#B3122E',c2:'#7E0B20',m:'amor y pasión'},
+ {id:'rp',n:'Rosa rosada',kind:'rose',c:'#F2A7B8',c2:'#D97890',m:'admiración, gratitud y cariño sincero'},
+ {id:'rb',n:'Rosa blanca',kind:'rose',c:'#FBF5EE',c2:'#E2D6C8',m:'nuevos comienzos'},
+ {id:'lb',n:'Lilium blanco',kind:'lily',c:'#FFFDF8',c2:'#E9DFC9',m:'elegancia, y un perfume que llena la casa'},
+ {id:'lr',n:'Lilium rosa',kind:'lily',c:'#F06A9C',c2:'#FBD3E2',m:'admiración y alegría'},
+ {id:'gn',n:'Gerbera naranja',kind:'gerbera',c:'#F26A1B',c2:'#3B2A14',m:'energía y buena onda'},
+ {id:'gr',n:'Gerbera rosa',kind:'gerbera',c:'#E4407A',c2:'#4A2B12',m:'alegría'},
+ {id:'gi',n:'Girasol',kind:'sun',c:'#F7C21B',c2:'#5A3510',m:'lealtad y luz, la reina de las flores amarillas'},
+ {id:'li',n:'Lisianthus lila',kind:'lisi',c:'#A88BD6',c2:'#7C5DB8',m:'aprecio y delicadeza'},
+ {id:'ma',n:'Manzanilla',kind:'daisy',c:'#FFFFFF',c2:'#F2C230',m:'calma y fuerza en los días difíciles'},
+ {id:'po',n:'Pompón amarillo',kind:'pom',c:'#F4D23A',c2:'#D9AE12',m:'amistad'},
+ {id:'ka',n:'Kasumi',kind:'kasumi',c:'#FFFFFF',c2:'#C8D1BF',m:'ternura',filler:true},
+ {id:'eu',n:'Eucalipto',kind:'euca',c:'#8FA89A',c2:'#5F7B6C',m:'frescura y aroma',filler:true},
+];
+const byId=Object.fromEntries(F.map(f=>[f.id,f]));
+const SIZES=[{id:'chico',n:'Chico',max:12},{id:'mediano',n:'Mediano',max:20},{id:'grande',n:'Grande',max:32},{id:'xxl',n:'XXL',max:60}];
+const PAPERS=[
+ {id:'kraft',n:'Papel madera',a:'#C9A06E',b:'#B08655'},
+ {id:'rosa',n:'Papel rosa',a:'#F3C9D3',b:'#E3A9B8'},
+ {id:'negro',n:'Papel negro PF',a:'#231C1D',b:'#110D0E'},
+ {id:'blanco',n:'Papel blanco',a:'#F7F3EF',b:'#DCD4CC'},
+ {id:'caja',n:'Caja de rayas',a:'#191314',b:'#F7F3EF'},
+];
+const OCC=[
+ {id:'recibida',n:'Recibida',size:'grande',paper:'kraft',f:{gi:5,gn:4,po:4,ma:3,eu:3},msg:'¡Feliz recibida! Todo el esfuerzo valió la pena.'},
+ {id:'mama',n:'Para mamá',size:'mediano',paper:'rosa',f:{rp:6,li:4,lr:2,ka:3},msg:'Gracias por todo, mamá.'},
+ {id:'amor',n:'Aniversario',size:'mediano',paper:'negro',f:{rr:12,ka:4},msg:'Otro año eligiéndote.'},
+ {id:'cumple',n:'Cumpleaños',size:'mediano',paper:'kraft',f:{gr:4,gn:3,rp:4,ma:4,eu:2},msg:'¡Feliz cumple!'},
+ {id:'novia',n:'Ramo de novia',size:'chico',paper:'blanco',f:{rb:7,lb:2,ka:5},msg:''},
+ {id:'amarillas',n:'Flores amarillas',size:'mediano',paper:'kraft',f:{gi:5,po:5,ma:4},msg:'Para que te llegue la primavera.'},
+ {id:'box',n:'Box para sorprender',size:'chico',paper:'caja',f:{rp:4,lr:2,li:3,ka:2},msg:'Porque sí.'},
+];
+const st={occ:'recibida',size:'grande',paper:'kraft',f:{},msg:''};
+function applyOcc(o){st.occ=o.id;st.size=o.size;st.paper=o.paper;st.f={...o.f};st.msg=o.msg;$('#msg').value=o.msg;}
+
+/* ---------- dibujo ---------- */
+let seedN=1;const rnd=()=>{seedN=(seedN*16807)%2147483647;return (seedN-1)/2147483646};
+const P=(cx,cy,r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)];
+function flowerSVG(f,x,y,s,rot){
+  let o=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(0)})">`;
+  if(f.kind==='rose'){
+    o+=`<circle r="${s}" fill="${f.c}" stroke="${f.c2}" stroke-width="1.2"/>`;
+    for(let k=0;k<5;k++){const r=s*(.82-k*.16);o+=`<path d="M ${-r} 0 A ${r} ${r*.92} 0 0 1 ${r*.7} ${-r*.6}" fill="none" stroke="${f.c2}" stroke-width="${1.6-k*.15}" stroke-linecap="round" transform="rotate(${k*72})"/>`}
+    o+=`<circle r="${s*.14}" fill="${f.c2}"/>`;
+  }else if(f.kind==='gerbera'){
+    const n=20;for(let k=0;k<n;k++){o+=`<ellipse cx="0" cy="${-s*.58}" rx="${s*.14}" ry="${s*.46}" fill="${f.c}" stroke="rgba(0,0,0,.12)" stroke-width=".6" transform="rotate(${k*360/n})"/>`}
+    o+=`<circle r="${s*.3}" fill="#8BA23A"/><circle r="${s*.2}" fill="${f.c2}"/>`;
+  }else if(f.kind==='sun'){
+    const n=18;for(let k=0;k<n;k++){o+=`<path d="M 0 ${-s*.38} Q ${s*.16} ${-s*.7} 0 ${-s*1.02} Q ${-s*.16} ${-s*.7} 0 ${-s*.38}Z" fill="${f.c}" stroke="#D99A0B" stroke-width=".7" transform="rotate(${k*360/n})"/>`}
+    o+=`<circle r="${s*.44}" fill="${f.c2}"/>`;for(let k=0;k<14;k++){const[a,b]=P(0,0,s*.26,k*2.4);o+=`<circle cx="${a.toFixed(1)}" cy="${b.toFixed(1)}" r="${s*.04}" fill="#2E1A07"/>`}
+  }else if(f.kind==='lily'){
+    for(let k=0;k<6;k++){o+=`<path d="M 0 0 C ${s*.36} ${-s*.3} ${s*.22} ${-s*.85} 0 ${-s*1.1} C ${-s*.22} ${-s*.85} ${-s*.36} ${-s*.3} 0 0Z" fill="${f.c}" stroke="${f.c2}" stroke-width="1" transform="rotate(${k*60+(k%2?0:8)})"/><path d="M0 -${s*.15} L0 ${-s*.8}" stroke="${f.c2}" stroke-width="1" transform="rotate(${k*60})"/>`}
+    for(let k=0;k<6;k++){const[a,b]=P(0,0,s*.38,k*1.05+.3);o+=`<line x1="0" y1="0" x2="${a.toFixed(1)}" y2="${b.toFixed(1)}" stroke="#7C8A3A" stroke-width="1"/><ellipse cx="${a.toFixed(1)}" cy="${b.toFixed(1)}" rx="2.4" ry="1.4" fill="#A2471B"/>`}
+  }else if(f.kind==='lisi'){
+    for(let k=0;k<5;k++){const[a,b]=P(0,0,s*.42,k*1.256);o+=`<circle cx="${a.toFixed(1)}" cy="${b.toFixed(1)}" r="${s*.58}" fill="${f.c}" stroke="${f.c2}" stroke-width="1"/>`}
+    o+=`<circle r="${s*.36}" fill="${f.c2}"/><circle r="${s*.12}" fill="#E8E2A0"/>`;
+  }else if(f.kind==='daisy'){
+    const n=14;for(let k=0;k<n;k++){o+=`<ellipse cx="0" cy="${-s*.55}" rx="${s*.15}" ry="${s*.42}" fill="${f.c}" stroke="#DDD4C4" stroke-width=".6" transform="rotate(${k*360/n})"/>`}
+    o+=`<circle r="${s*.28}" fill="${f.c2}"/>`;
+  }else if(f.kind==='pom'){
+    o+=`<circle r="${s}" fill="${f.c2}"/>`;for(let k=0;k<26;k++){const r=s*Math.sqrt((k+.5)/26)*.92,a=k*2.4;const[x2,y2]=P(0,0,r,a);o+=`<circle cx="${x2.toFixed(1)}" cy="${y2.toFixed(1)}" r="${s*.17}" fill="${f.c}" stroke="${f.c2}" stroke-width=".6"/>`}
+  }
+  return o+'</g>';
+}
+function fillerSVG(f,x,y,s,rot){
+  let o=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(0)})">`;
+  if(f.kind==='euca'){
+    o+=`<path d="M0 ${s*1.2} Q ${s*.15} 0 0 ${-s*1.3}" stroke="${f.c2}" stroke-width="1.6" fill="none"/>`;
+    for(let k=0;k<7;k++){const yy=s*1.05-k*s*.36,side=k%2?1:-1;o+=`<circle cx="${side*s*.26}" cy="${yy.toFixed(1)}" r="${(s*.27-k*.6).toFixed(1)}" fill="${f.c}" stroke="${f.c2}" stroke-width=".8"/>`}
+  }else{
+    for(let k=0;k<22;k++){const r=s*Math.sqrt(rnd())*1.1,a=rnd()*6.28;const[x2,y2]=P(0,0,r,a);o+=`<line x1="0" y1="${s}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${f.c2}" stroke-width=".5"/><circle cx="${x2.toFixed(1)}" cy="${y2.toFixed(1)}" r="${(1.6+rnd()*1.4).toFixed(1)}" fill="${f.c}" stroke="#D8D2C6" stroke-width=".4"/>`}
+  }
+  return o+'</g>';
+}
+let prevKeys=new Set();
+function draw(){
+  const svg=$('#bouquet');const p=PAPERS.find(x=>x.id===st.paper);const box=p.id==='caja';
+  const stems=[],fills=[];
+  F.forEach(f=>{for(let i=0;i<(st.f[f.id]||0);i++)(f.filler?fills:stems).push({f,key:f.id+i})});
+  const total=stems.length;$('#stemCount').textContent=total+fills.length;
+  $('#emptyMsg').hidden=(total+fills.length)>0;
+  // interleave stems deterministically so colours mix
+  seedN=7;const order=stems.map((s,i)=>({s,r:rnd()})).sort((a,b)=>a.r-b.r).map(o=>o.s);
+  const cx=200,cy=box?215:190;
+  const sMax=box?30:34,sz=Math.max(18,sMax-Math.max(0,total-10)*.32);
+  const R=Math.min(box?120:150,(Math.sqrt(Math.max(total,1))*sz*.95));
+  const pos=order.map((o,i)=>{const t=Math.sqrt((i+.5)/Math.max(total,1));const a=i*2.39996;return{...o,x:cx+Math.cos(a)*R*t,y:cy+Math.sin(a)*R*t*.78,s:sz*(o.f.kind==='lily'?1.15:o.f.kind==='daisy'?.75:o.f.kind==='pom'?.62:1),d:t}});
+  let g='<defs><pattern id="stripes" width="26" height="10" patternUnits="userSpaceOnUse"><rect width="13" height="10" fill="'+p.a+'"/><rect x="13" width="13" height="10" fill="'+p.b+'"/></pattern>'+
+    '<linearGradient id="paperG" x1="0" x2="1"><stop offset="0" stop-color="'+p.b+'"/><stop offset=".5" stop-color="'+p.a+'"/><stop offset="1" stop-color="'+p.b+'"/></linearGradient></defs>';
+  // shadow
+  g+=`<ellipse cx="200" cy="452" rx="${box?120:70}" ry="10" fill="rgba(0,0,0,.18)"/>`;
+  if(!box){
+    // stems & back paper
+    g+=`<path d="M200 448 L ${200-(R+50)} ${cy-R*.55-30} Q 200 ${cy-R-70} ${200+(R+50)} ${cy-R*.55-30} Z" fill="${p.b}" opacity=".95"/>`;
+    for(let i=0;i<Math.min(total,14);i++){g+=`<line x1="${190+i*1.5}" y1="460" x2="${200+(i-7)*6}" y2="${cy+40}" stroke="#5E7A3E" stroke-width="3"/>`}
+  }
+  // fillers behind
+  seedN=11;fills.forEach((o,i)=>{const a=i*2.1+.4,r=R*.85+12;const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r*.7-10;const isNew=!prevKeys.has(o.key);g+=`<g class="${isNew?'bloom-new':''}">${fillerSVG(o.f,x,y,26,(a*57)%360-90+90*Math.cos(a))}</g>`});
+  // leaves ring
+  pos.filter(o=>o.d>.7).forEach((o,i)=>{g+=`<ellipse cx="${(o.x+(o.x-cx)*.18).toFixed(1)}" cy="${(o.y+(o.y-cy)*.18).toFixed(1)}" rx="${o.s*.45}" ry="${o.s*.9}" fill="#56743F" transform="rotate(${(Math.atan2(o.y-cy,o.x-cx)*57.3+90).toFixed(0)} ${(o.x+(o.x-cx)*.18).toFixed(1)} ${(o.y+(o.y-cy)*.18).toFixed(1)})"/>`});
+  // flowers outer first
+  [...pos].sort((a,b)=>b.d-a.d).forEach((o,i)=>{const isNew=!prevKeys.has(o.key);g+=`<g class="${isNew?'bloom-new':''}" style="animation-delay:${isNew?(i%6)*40:0}ms">${flowerSVG(o.f,o.x,o.y,o.s,(o.d*400+i*37)%360)}</g>`});
+  // front wrap
+  if(box){
+    g+=`<path d="M ${200-125} 270 L ${200+125} 270 L ${200+112} 446 Q 200 456 ${200-112} 446 Z" fill="url(#stripes)" stroke="#191314" stroke-width="1.5"/>`;
+    g+=`<ellipse cx="200" cy="270" rx="125" ry="14" fill="#191314"/>`;
+    g+=`<path d="M 170 300 q 30 -26 60 0 q -30 26 -60 0Z" fill="#7E0B20" opacity=".0"/>`;
+    g+=`<rect x="150" y="330" width="100" height="36" rx="2" fill="#F7F3EF" stroke="#191314"/><text x="200" y="354" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="18" fill="#191314">PF</text>`;
+  }else{
+    const w=R+42;
+    g+=`<path d="M 200 452 L ${200-w} ${cy+R*.25} Q ${200-w*.55} ${cy+R*.62} 200 ${cy+R*.5} Q ${200+w*.55} ${cy+R*.62} ${200+w} ${cy+R*.25} Z" fill="url(#paperG)" stroke="rgba(0,0,0,.18)" stroke-width="1"/>`;
+    g+=`<path d="M 200 452 L ${200-w*.42} ${cy+R*.52} Q 200 ${cy+R*.66} ${200+w*.5} ${cy+R*.44} Z" fill="${p.a}" stroke="rgba(0,0,0,.14)" stroke-width="1"/>`;
+    g+=`<circle cx="200" cy="${(cy+R*.5+452)/2+10}" r="16" fill="${p.id==='negro'?'#F7F3EF':'#191314'}"/><text x="200" y="${(cy+R*.5+452)/2+15}" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="13" fill="${p.id==='negro'?'#191314':'#F7F3EF'}">PF</text>`;
+  }
+  svg.innerHTML=g;prevKeys=new Set([...stems,...fills].map(o=>o.key));
+}
+
+/* ---------- UI ---------- */
+function chipRow(el,items,cur,on,sw){el.innerHTML=items.map(i=>`<button type="button" class="chip" data-id="${i.id}" aria-pressed="${i.id===cur}">${sw?`<span class="sw" style="background:${i.id==='caja'?'repeating-linear-gradient(90deg,#191314 0 3px,#F7F3EF 3px 6px)':i.a}"></span>`:''}${i.n}${i.max?` <small style="opacity:.6">· hasta ${i.max}</small>`:''}</button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;on(b.dataset.id);}}
+function flowerIcon(f){return `<svg viewBox="-24 -24 48 48" aria-hidden="true">${f.filler?(seedN=3,fillerSVG(f,0,0,16,0)):flowerSVG(f,0,0,f.kind==='pom'?14:f.kind==='lily'?18:19,0)}</svg>`}
+function renderList(){
+  $('#flowerList').innerHTML=F.map(f=>`<div class="fl ${(st.f[f.id]||0)?'on':''}">${flowerIcon(f)}<div class="nm">${f.n}<small>${f.filler?'Follaje y relleno':'Flor'}</small></div><div class="stepper"><button type="button" data-d="-1" data-id="${f.id}" aria-label="Quitar ${f.n}">−</button><output aria-live="polite">${st.f[f.id]||0}</output><button type="button" data-d="1" data-id="${f.id}" aria-label="Sumar ${f.n}">+</button></div></div>`).join('');
+}
+function flowersTotal(){return F.filter(f=>!f.filler).reduce((a,f)=>a+(st.f[f.id]||0),0)}
+function renderAll(){setTimeout(()=>{try{syncOrder()}catch(e){}},0);
+  chipRow($('#occasions'),OCC,st.occ,id=>{applyOcc(OCC.find(o=>o.id===id));prevKeys=new Set();renderAll();});
+  chipRow($('#sizes'),SIZES,st.size,id=>{st.size=id;trim();renderAll();});
+  chipRow($('#papers'),PAPERS,st.paper,id=>{st.paper=id;renderAll();},true);
+  renderList();draw();
+  $('#noteView').textContent=st.msg;
+  const chosen=F.filter(f=>st.f[f.id]);
+  $('#meaning').innerHTML=chosen.length?chosen.map(f=>`<span><b>${f.n}</b>: ${f.m}.</span>`).join(''):'<span>Elegí flores y te contamos qué significa cada una.</span>';
+}
+function maxStems(){return SIZES.find(s=>s.id===st.size).max}
+function trim(){let over=flowersTotal()-maxStems();if(over<=0)return;for(const f of [...F].reverse()){if(f.filler)continue;while(over>0&&st.f[f.id]>0){st.f[f.id]--;over--}}}
+$('#flowerList').addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(!b)return;const f=byId[b.dataset.id],d=+b.dataset.d;let v=(st.f[f.id]||0)+d;if(v<0)v=0;
+  if(d>0&&!f.filler&&flowersTotal()>=maxStems()){const nx=SIZES.findIndex(s=>s.id===st.size)+1;if(nx<SIZES.length){st.size=SIZES[nx].id;toast('Pasamos tu ramo a tamaño '+SIZES[nx].n)}else{toast('Llegaste al máximo del ramo XXL');return}}
+  if(d>0&&f.filler&&v>8){toast('Con 8 ramitas de '+f.n.toLowerCase()+' alcanza');return}
+  st.f[f.id]=v;st.occ='';renderAll();});
+$('#msg').addEventListener('input',e=>{st.msg=e.target.value;$('#noteView').textContent=st.msg;syncOrder()});
+$('#resetBtn').addEventListener('click',()=>{st.f={};st.occ='';st.msg='';$('#msg').value='';prevKeys=new Set();renderAll();});
+function orderText(){const s=SIZES.find(x=>x.id===st.size),p=PAPERS.find(x=>x.id===st.paper);const items=F.filter(f=>st.f[f.id]).map(f=>`• ${st.f[f.id]} ${f.n}`).join('\n');
+  return `¡Hola Puesto de Flores! Armé este ramo en la web:\n\nTamaño: ${s.n}\nPresentación: ${p.n}\n${items||'• (sin flores elegidas)'}${st.msg?`\n\nTarjeta: "${st.msg}"`:''}\n\n¿Me pasan precio y disponibilidad?`}
+const WA='https://wa.me/5493512610879';const wa=t=>WA+'?text='+encodeURIComponent(t);
+function syncOrder(){$('#orderBtn').href=wa(orderText())}
+$('#orderBtn').addEventListener('click',()=>{syncOrder();try{navigator.clipboard.writeText(orderText()).catch(()=>{})}catch(e){}});
+document.querySelectorAll('a[data-wa]').forEach(a=>a.href=wa(a.dataset.wa));
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2600)}
+applyOcc(OCC[0]);renderAll();syncOrder();
+
+/* ---------- galería ---------- */
+const G=[
+ ['p2.jpg','ramos','Ramo de lilium y mix en papel rosa'],['p29.jpg','ramos','Ramo de rosas fucsia y mix'],['p8.jpg','box','Box de rosas rojas con lazo'],['p17.jpg','ramos','Ramo de rosas rosadas'],
+ ['p84.jpg','deco','Girasoles en florero de cerámica'],['p22.jpg','ramos','Ramo de liliums blancos y eucalipto'],['p52.jpg','box','Box rayado con rosas rojas'],['p28.jpg','eventos','Centro de mesa blanco'],
+ ['p33.jpg','ramos','Ramo de girasoles y margaritas'],['p40.jpg','deco','Floreros HALO'],['p31.jpg','box','Box con rosas y espumante'],['p16.jpg','ramos','Ramo romántico en papel rosa'],
+ ['p67.jpg','temporada','Centro navideño con velas'],['p83.jpg','ramos','Ramo de novia de rosas blancas'],['p19.jpg','box','Arreglo con lilium en caja PF'],['p85.jpg','eventos','Mesa ambientada con flores'],
+ ['p21.jpg','ramos','Ramo de gerberas en papel negro'],['p30.jpg','deco','Flores secas en caja de madera'],['p87.jpg','ramos','Ramo de rosas fucsia'],['p41.jpg','box','Caja blanca con rosas'],
+ ['p6.jpg','ramos','Ramo verde y blanco en papel madera'],['p69.jpg','temporada','Centro de mesa navideño verde'],['p37.jpg','deco','Floreros con flores secas'],['p23.jpg','ramos','Ramo de rosas pastel'],
+ ['p59.jpg','box','Caja kraft con mix de flores'],['p78.jpg','ramos','Ramo de liliums blancos'],['p61.jpg','deco','Kokedama con helecho'],['p86.jpg','ramos','Ramo de flores amarillas'],
+ ['p94.jpg','box','Caja negra con liliums'],['p25.jpg','box','Arreglo blanco en caja rayada rosa'],['p73.jpg','ramos','Ramo lila y rosa'],['p76.jpg','deco','Floreros chocolate'],
+ ['p15.jpg','ramos','Ramo blanco en papel blanco PF'],['p32.jpg','ramos','Ramo otoñal'],['p77.jpg','ramos','Rosas rojas en papel negro'],['p90.jpg','ramos','Ramo de liliums en papel madera'],
+ ['p60.jpg','deco','Pampa en florero blanco'],['p95.jpg','ramos','Ramo frente al local'],['p39.jpg','ramos','Ramo de novia con lilium y kasumi']
+];
+const CATS=[['todo','Todo'],['ramos','Ramos'],['box','Box & arreglos'],['eventos','Eventos'],['deco','Deco & home'],['temporada','Temporada']];
+let cat='todo';
+function renderGal(){$('#filters').innerHTML=CATS.map(([id,n])=>`<button type="button" class="chip" data-id="${id}" aria-pressed="${id===cat}">${n}</button>`).join('');
+  $('#masonry').innerHTML=G.filter(g=>cat==='todo'||g[1]===cat).map(g=>`<button type="button" data-src="${g[0]}" aria-label="Ver ${g[2]}"><img src="${g[0]}" alt="${g[2]}" loading="lazy"></button>`).join('');}
+$('#filters').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.id;renderGal()};
+$('#masonry').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('#lbImg').src=b.dataset.src;$('#lbImg').alt=b.getAttribute('aria-label');$('#lb').hidden=false;$('#lbClose').focus()};
+const closeLb=()=>{$('#lb').hidden=true};$('#lbClose').onclick=closeLb;$('#lb').onclick=e=>{if(e.target.id==='lb')closeLb()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+renderGal();
+
+/* ---------- calendario ---------- */
+function easter(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+function thirdSunOct(y){const d=new Date(y,9,1);const off=(7-d.getDay())%7;return new Date(y,9,1+off+14)}
+const EV=[
+ {n:'San Valentín',t:'Be my Valentine: box y ramos de rosas',f:y=>new Date(y,1,14),img:'p49.jpg'},
+ {n:'Día de la Mujer',t:'Flores para mujeres que inspiran',f:y=>new Date(y,2,8),img:'p73.jpg'},
+ {n:'Flores amarillas',t:'Girasoles, pompones y margaritas',f:y=>new Date(y,2,21),img:'p33.jpg'},
+ {n:'Pascua',t:'Deco de Pascua para la casa',f:y=>easter(y),img:'p61.jpg'},
+ {n:'Día del Amigo',t:'Ramitos para regalar de a muchos',f:y=>new Date(y,6,20),img:'p86.jpg'},
+ {n:'Primavera',t:'Flores amarillas y ramos de estación',f:y=>new Date(y,8,21),img:'p95.jpg'},
+ {n:'Día de la Madre',t:'Ramos mix y rosas para mamá',f:y=>thirdSunOct(y),img:'p16.jpg'},
+ {n:"Temporada de recibidas",t:"Ramos XXL para celebrar el título",f:y=>new Date(y,11,1),img:'p29.jpg'},
+ {n:'Navidad',t:'Centros de mesa con velas y deco navideña',f:y=>new Date(y,11,24),img:'p67.jpg'},
+];
+const today=new Date();today.setHours(0,0,0,0);
+const up=EV.map(e=>{let d=e.f(today.getFullYear());if(d<today)d=e.f(today.getFullYear()+1);return{...e,d,days:Math.round((d-today)/864e5)}}).sort((a,b)=>a.d-b.d);
+const fmt=d=>d.toLocaleDateString('es-AR',{day:'numeric',month:'short'}).replace('.','');
+const n0=up[0];
+$('#nextDate').innerHTML=`<p class="eyebrow" style="color:inherit;opacity:.7">Próxima fecha</p><div class="days">${n0.days===0?'Hoy':n0.days}<small>${n0.days===0?'es el día':n0.days===1?'día':'días'} · ${fmt(n0.d)}</small></div><h3>${n0.n}</h3><p>${n0.t}. Encargá con tiempo y asegurate tu ramo.</p><a class="btn" href="${WA}?text=${encodeURIComponent('¡Hola! Quiero reservar un pedido para '+n0.n+'.')}" target="_blank" rel="noopener">Reservar mi pedido</a><img src="${n0.img}" alt="">`;
+$('#dateList').innerHTML=up.slice(1).map(e=>`<li><span class="d">${fmt(e.d)}</span><span class="t"><b>${e.n}</b><span>${e.t}</span></span><span class="r">en ${e.days} días</span></li>`).join('');
+})();
+</script>
+
+</body>
+</html>
